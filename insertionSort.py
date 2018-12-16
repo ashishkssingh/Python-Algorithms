@@ -11,7 +11,7 @@
 #
 #**********************************************************************;
 
-# Function that implements Selection sort
+# Function that implements insertion sort
 def insertionSort(unsortedArray):
 
 	# get length of the array
@@ -49,6 +49,6 @@ if __name__ == "__main__":
 	# Test values for sorting
     unsortedArray = [12, 11, 13, 5, 6]
 
-    # Calling selection sort function
+    # Calling insertion sort function
     insertionSort(unsortedArray)
 
