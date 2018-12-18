@@ -43,7 +43,7 @@ def printSortedArray(sortedArray):
 	# Print Sorted array to the console
 	print(string)
 
-# Main function that executes when script runs on the console
+# Main function that executes when script runs on the console.
 if __name__ == "__main__":
 
 	# Test values for sorting
