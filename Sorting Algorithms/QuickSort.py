@@ -46,7 +46,7 @@ def printArray(sortedArray, arraySize):
     # Print the sorted array
     print(string)
 
-# Main function that will be called when executed from console
+# Main function that will be called when executed from console.
 if __name__ == "__main__":
 
     # Array that needs to be sorted
