@@ -1,2 +1,2 @@
 # Algorithms in python
-Just trying out different algorithms in python
+Learning and practicing algorithms in python 3.
