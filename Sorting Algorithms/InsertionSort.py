@@ -19,7 +19,7 @@ def insertionSort(unsortedArray):
 
 	for i in range(1 , arrayLength):
 
-		# Select the first element if the loop as 
+		# Select the first element if the loop as key
 		key = unsortedArray[i]
 
 		j = i - 1
