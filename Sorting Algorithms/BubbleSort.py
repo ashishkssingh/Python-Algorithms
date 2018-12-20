@@ -1,7 +1,7 @@
 # **********************************************************************;
 # Project           : Learning Algorithms
 # 
-# Program name      : bubbleSort.py
+# Program name      : BubbleSort.py
 #
 # Author            : Ashish
 #
