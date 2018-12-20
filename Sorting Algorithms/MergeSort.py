@@ -1,7 +1,7 @@
 # **********************************************************************;
 # Project           : Learning Algorithms
 #
-# Program name      : selectionSort.py
+# Program name      : MergeSort.py
 #
 # Author            : Ashish
 #
