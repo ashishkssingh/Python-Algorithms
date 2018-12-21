@@ -1,3 +1,16 @@
+# **********************************************************************;
+# Project           : Learning Algorithms
+# 
+# Program name      : QuickSort.py
+#
+# Author            : Ashish
+#
+# Date created      : 20181217
+#
+# Purpose           : Implementing Quick Sort algorithm in python 3
+#
+#**********************************************************************;
+
 # Function to calculate the partitioning element
 def partition(unsortedArray, low, high):
 
