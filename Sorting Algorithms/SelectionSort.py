@@ -9,7 +9,7 @@
 #
 # Purpose           : Implementing selection sort algorithm in python
 #
-#**********************************************************************;
+# **********************************************************************;
 
 # Function that implements Selection sort
 def selectionSort(unsortedArray):
