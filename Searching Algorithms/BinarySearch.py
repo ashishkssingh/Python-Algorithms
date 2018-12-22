@@ -37,8 +37,9 @@ def BinarySearch(searchArray, leftLimit, rightLimit, searchedValue):
         # Element is not present in the array
         return -1
 
-
+# Function that prints the index of the element
 def printIndex(index):
+    
     # Check for the value of the index
     if index == -1:
         print("Value was not found in the array")
