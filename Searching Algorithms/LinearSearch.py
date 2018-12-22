@@ -11,6 +11,7 @@
 #
 # **********************************************************************;
 
+# Function that implements Linear Search algorithm
 def LinearSearch(searchArray, searchedValue):
 
     # Loop through all the elements in the array for searched value
@@ -22,15 +23,16 @@ def LinearSearch(searchArray, searchedValue):
     # If the searched value is not present in the array return -1 as the index
     return -1
 
-
+# Function that prints the index of the element
 def printIndex(index):
+    
     # Check for the value of the index
     if index == -1:
         print("Value was not found in the array")
     else:
         print("Value was found at index : " + str(index))
 
-
+# Main function that executes when script runs on the console.
 if __name__ == "__main__":
     # Initialize searching array
     searchArray = [2, 3, 4, 10, 40]
