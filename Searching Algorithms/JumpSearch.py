@@ -53,7 +53,7 @@ def printIndex(index):
     else:
         print("Value was found at index : " + str(index))
 
-
+# Main function that executes when script runs on the console.
 if __name__ == "__main__":
     # Initialize searching array
     searchArray = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
