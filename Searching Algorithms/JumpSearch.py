@@ -21,24 +21,24 @@ def jumpSearch(searchArray, searchedValue, arraySize):
     block = math.sqrt(arraySize)
 
     # Look for the block in which searched element is present
-    prev = 0
+    leftLimit = 0
     while searchArray[int(min(block, arraySize) - 1)] < searchedValue:
-        prev = block
+        leftLimit = block
         block += math.sqrt(arraySize)
-        if prev >= arraySize:
+        if leftLimit >= arraySize:
             return -1
 
     # Do a linear search in the block found in previous step
-    while searchArray[int(prev)] < searchedValue:
-        prev += 1
+    while searchArray[int(leftLimit)] < searchedValue:
+        leftLimit += 1
 
         # If we reach the end of the block and don't find the element return -1 as index
-        if prev == min(block, arraySize):
+        if leftLimit == min(block, arraySize):
             return -1
 
     # If element is found in the given block return the value of the index
-    if searchArray[int(prev)] == searchedValue:
-        return int(prev)
+    if searchArray[int(leftLimit)] == searchedValue:
+        return int(leftLimit)
     
     # If the element is still not found return -1 as index     
     return -1
