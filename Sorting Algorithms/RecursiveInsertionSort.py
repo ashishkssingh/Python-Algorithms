@@ -5,30 +5,27 @@
 #
 # Author            : Ashish
 #
-# Date created      : 20181216
+# Date created      : 20181224
 #
 # Purpose           : Implementing recursive insertion sort algorithm in python
 #
 # **********************************************************************;
 
-# Function that implements insertion sort
+# Function that implements recursive insertion sort
 def RecursiveInsertionSort(unsortedArray, arrayLength):
 
-    # base case
+    # Base case to exit out of the recursion loop
     if arrayLength <= 1:
         return
 
     # Sort first n-1 elements
     RecursiveInsertionSort(unsortedArray, arrayLength - 1)
 
-    '''Insert last element at its correct position 
-        in sorted array.'''
+    # Insert the last element in the correct position and use it as key   
     last = unsortedArray[arrayLength - 1]
     j = arrayLength - 2
 
-    # Move elements of arr[0..i-1], that are
-    # greater than key, to one position ahead
-    # of their current position
+    # Move all the values greater than the key one position ahead.
     while j >= 0 and unsortedArray[j] > last:
         unsortedArray[j + 1] = unsortedArray[j]
         j = j - 1
@@ -56,7 +53,7 @@ if __name__ == "__main__":
     # get length of the array
     arrayLength = len(unsortedArray)
 
-    # Calling insertion sort function
+    # Calling recursive insertion sort function
     RecursiveInsertionSort(unsortedArray, arrayLength)
 
     # Call printArray function to print the sorted array
