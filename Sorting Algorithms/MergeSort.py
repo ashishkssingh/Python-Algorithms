@@ -11,8 +11,9 @@
 #
 # **********************************************************************;
 
-# Function that implements Selection sort
+# Function that implements Merge sort
 def mergeSort(unsortedArray):
+
     if len(unsortedArray) > 1:
         # Finding the mid of the array
         mid = len(unsortedArray) // 2
