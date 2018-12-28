@@ -58,5 +58,5 @@ if __name__ == "__main__":
     # Value to be searched in the array
     searchedValue = 10
 
-    # Call Linear Search function and print the index
+    # Call Binary Search function and print the index
     printIndex(BinarySearch(searchArray, 0, arrayLength, searchedValue))
