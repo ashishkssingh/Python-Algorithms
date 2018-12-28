@@ -12,36 +12,37 @@
 # **********************************************************************;
 
 # Function that implements the search algorithm
-def interpolationSearch(searchArray, arraySize, searchedValue):
+def interpolationSearch(searchArray, searchedValue, arraySize):
 
     # Set lower and upper limit of search index
     low = 0
     high = (arraySize - 1)
 
-    # Since array is sorted, an element present
-    # in array must be in range defined by corner
+    # Check in what range does the search value exists
     while low <= high and searchArray[low] <= searchedValue <= searchArray[high]:
-        # Probing the position with keeping
-        # uniform distribution in mind.
+
+        # Probing the position with keeping uniform distribution in mind.
         position = low + int(((float(high - low)/(searchArray[high] - searchArray[low])) * (searchedValue - searchArray[low])))
 
-        # Condition of target found
+        # Check if the probed position is the searched value
         if searchArray[position] == searchedValue:
             return position
 
-        # If x is larger, x is in upper part
+        # If the value at probed position is less than search value it's present in the upper bracket
         if searchArray[position] < searchedValue:
-            low = position + 1;
+            low = position + 1
 
-        # If x is smaller, x is in lower part
+        # If the value at probed position is greater than search value it's present in the lower bracket
         else:
-            high = position - 1;
+            high = position - 1
 
+    # If the search value is not found in any brackets return -1 as index
     return -1
 
 
 # Function to print index of the element
 def printIndex(index):
+
     # Check for the value of the index, if -1 the value was not found else print the value of index
     if index == -1:
         print("Value was not found in the array")
