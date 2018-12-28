@@ -52,6 +52,7 @@ def printIndex(index):
 
 # Main function that executes when script runs on the console.
 if __name__ == "__main__":
+
     # Initialize searching array
     searchArray = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
 
@@ -61,5 +62,5 @@ if __name__ == "__main__":
     # Size of the searching array
     arraySize = len(searchArray)
 
-    # Call Linear Search function and print the index
+    # Call Interpolation Search function and print the index
     printIndex(interpolationSearch(searchArray, searchedValue, arraySize))
