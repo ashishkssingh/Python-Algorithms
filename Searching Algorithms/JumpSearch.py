@@ -64,5 +64,5 @@ if __name__ == "__main__":
     # Size of the searching array
     arraySize = len(searchArray)
 
-    # Call Linear Search function and print the index
+    # Call Jump Search function and print the index
     printIndex(jumpSearch(searchArray, searchedValue, arraySize))
