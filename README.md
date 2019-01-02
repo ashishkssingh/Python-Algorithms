@@ -19,6 +19,6 @@ Learning and practicing algorithms.
 * Linear Search
 * Binary Search
 * Jump Search
-* Intepolation Search
+* Interpolation Search
 * Exponential Search
 
