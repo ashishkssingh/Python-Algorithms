@@ -11,24 +11,20 @@
 #
 # **********************************************************************;
 
-# Python3 program for Fibonacci search.
-from bisect import bisect_left
-
-
 # Returns index of x if present, else
 # returns -1
-def fibonacciSearch(arr, x, n):
+def fibonacciSearch(searchArray, searchedValue, arraySize):
     # Initialize fibonacci numbers
-    fibMMm2 = 0  # (m-2)'th Fibonacci No.
-    fibMMm1 = 1  # (m-1)'th Fibonacci No.
-    fibM = fibMMm2 + fibMMm1  # m'th Fibonacci
+    fibm2 = 0  # (m-2)'th Fibonacci No.
+    fibm1 = 1  # (m-1)'th Fibonacci No.
+    fibM = fibm2 + fibm1  # m'th Fibonacci
 
     # fibM is going to store the smallest
     # Fibonacci Number greater than or equal to n
-    while (fibM < n):
-        fibMMm2 = fibMMm1
-        fibMMm1 = fibM
-        fibM = fibMMm2 + fibMMm1
+    while (fibM < arraySize):
+        fibm2 = fibm1
+        fibm1 = fibM
+        fibM = fibm2 + fibm1
 
     # Marks the eliminated range from front
     offset = -1;
@@ -39,31 +35,31 @@ def fibonacciSearch(arr, x, n):
     while (fibM > 1):
 
         # Check if fibMm2 is a valid location
-        i = min(offset + fibMMm2, n - 1)
+        i = min(offset + fibm2, arraySize - 1)
 
         # If x is greater than the value at
         # index fibMm2, cut the subarray array
         # from offset to i
-        if (arr[i] < x):
-            fibM = fibMMm1
-            fibMMm1 = fibMMm2
-            fibMMm2 = fibM - fibMMm1
+        if (searchArray[i] < searchedValue):
+            fibM = fibm1
+            fibm1 = fibm2
+            fibm2 = fibM - fibm1
             offset = i
 
         # If x is greater than the value at
         # index fibMm2, cut the subarray
         # after i+1
-        elif (arr[i] > x):
-            fibM = fibMMm2
-            fibMMm1 = fibMMm1 - fibMMm2
-            fibMMm2 = fibM - fibMMm1
+        elif (searchArray[i] > searchedValue):
+            fibM = fibm2
+            fibm1 = fibm1 - fibm2
+            fibm2 = fibM - fibm1
 
         # element found. return index
         else:
             return i
 
         # comparing the last element with x */
-    if (fibMMm1 and arr[offset + 1] == x):
+    if (fibm1 and searchArray[offset + 1] == searchedValue):
         return offset + 1
 
     # element not found. return -1
