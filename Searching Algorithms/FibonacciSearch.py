@@ -27,7 +27,7 @@ def fibonacciSearch(searchArray, searchedValue, arraySize):
         fibM = fibm2 + fibm1
 
     # Marks the eliminated range from front
-    offset = -1;
+    offset = -1
 
     # while there are elements to be inspected.
     # Note that we compare arr[fibMm2] with x.
