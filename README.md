@@ -21,4 +21,4 @@ Learning and practicing algorithms.
 * Jump Search
 * Interpolation Search
 * Exponential Search
-
+* Fibonacci Search
