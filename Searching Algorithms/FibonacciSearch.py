@@ -14,13 +14,13 @@
 # Returns index of x if present, else
 # returns -1
 def fibonacciSearch(searchArray, searchedValue, arraySize):
-    # Initialize fibonacci numbers
-    fibm2 = 0  # (m-2)'th Fibonacci No.
-    fibm1 = 1  # (m-1)'th Fibonacci No.
-    fibM = fibm2 + fibm1  # m'th Fibonacci
 
-    # fibM is going to store the smallest
-    # Fibonacci Number greater than or equal to n
+    # Initialize fibonacci numbers
+    fibm2 = 0
+    fibm1 = 1
+    fibM = fibm2 + fibm1
+
+    # fibM is going to store the smallest Fibonacci Number greater than or equal to n
     while (fibM < arraySize):
         fibm2 = fibm1
         fibm1 = fibM
@@ -30,25 +30,20 @@ def fibonacciSearch(searchArray, searchedValue, arraySize):
     offset = -1
 
     # while there are elements to be inspected.
-    # Note that we compare arr[fibMm2] with x.
-    # When fibM becomes 1, fibMm2 becomes 0
+    # Note that we compare arr[fibMm2] with x and when fibM becomes 1, fibMm2 becomes 0
     while (fibM > 1):
 
         # Check if fibMm2 is a valid location
         i = min(offset + fibm2, arraySize - 1)
 
-        # If x is greater than the value at
-        # index fibMm2, cut the subarray array
-        # from offset to i
+        # If x is greater than the value at index fibMm2, cut the subarray array from offset to i
         if (searchArray[i] < searchedValue):
             fibM = fibm1
             fibm1 = fibm2
             fibm2 = fibM - fibm1
             offset = i
 
-        # If x is greater than the value at
-        # index fibMm2, cut the subarray
-        # after i+1
+        # If x is greater than the value at index fibMm2, cut the subarray after i+1
         elif (searchArray[i] > searchedValue):
             fibM = fibm2
             fibm1 = fibm1 - fibm2
@@ -58,7 +53,7 @@ def fibonacciSearch(searchArray, searchedValue, arraySize):
         else:
             return i
 
-        # comparing the last element with x */
+        # comparing the last element with x
     if (fibm1 and searchArray[offset + 1] == searchedValue):
         return offset + 1
 
