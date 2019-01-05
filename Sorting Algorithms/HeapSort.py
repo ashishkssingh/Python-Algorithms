@@ -15,37 +15,39 @@
 def heapify(unsortedArray, arraySize, i):
 
     largest = i  # Initialize largest as root
-    l = 2 * i + 1  # left = 2*i + 1
-    r = 2 * i + 2  # right = 2*i + 2
+    left = 2 * i + 1  # left node = 2*i + 1
+    right = 2 * i + 2  # right node= 2*i + 2
 
-    # See if left child of root exists and is
-    # greater than root
-    if l < arraySize and unsortedArray[i] < unsortedArray[l]:
-        largest = l
+    # See if left child of root exists and is greater than root
+    if left < arraySize and unsortedArray[i] < unsortedArray[left]:
+        largest = left
 
-    # See if right child of root exists and is
-    # greater than root
-    if r < arraySize and unsortedArray[largest] < unsortedArray[r]:
-        largest = r
+    # See if right child of root exists and is greater than root
+    if right < arraySize and unsortedArray[largest] < unsortedArray[right]:
+        largest = right
 
     # Change root, if needed
     if largest != i:
-        unsortedArray[i], unsortedArray[largest] = unsortedArray[largest], unsortedArray[i]  # swap
 
-        # Heapify the root.
+        # Swap the elements
+        unsortedArray[i], unsortedArray[largest] = unsortedArray[largest], unsortedArray[i]
+
+        # Heapify the root node
         heapify(unsortedArray, arraySize, largest)
 
 # The main function to sort an array of given size
 def heapSort(unsortedArray):
     arraySize = len(unsortedArray)
 
-    # Build a maxheap.
+    # Build a maxheap
     for i in range(arraySize, -1, -1):
         heapify(unsortedArray, arraySize, i)
 
-    # One by one extract elements
+    # One by one extract elements from array and put it into heap
     for i in range(arraySize - 1, 0, -1):
-        unsortedArray[i], unsortedArray[0] = unsortedArray[0], unsortedArray[i]  # swap
+
+        # Swap the elements
+        unsortedArray[i], unsortedArray[0] = unsortedArray[0], unsortedArray[i]
         heapify(unsortedArray, i, 0)
 
 # Function to print Sorted Array
@@ -61,7 +63,7 @@ def printSortedArray(sortedArray):
 
 # Main function that executes when script runs on the console.
 if __name__ == "__main__":
-    
+
     # Test values for sorting
     unsortedArray = [12, 11, 13, 5, 6]
 
