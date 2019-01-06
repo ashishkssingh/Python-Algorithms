@@ -13,6 +13,7 @@ Learning and practicing algorithms.
 * Merge Sort
 * Iterative Merge Sort
 * Quick Sort
+* Heap Sort
 
 ### Searching Algorithms
 
