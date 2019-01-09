@@ -12,10 +12,10 @@
 # **********************************************************************;
 
 # Function to implement shell sort algorithm
-def shellSort(arr):
+def shellSort(unsortedArray):
 
     # Start with a big gap, then reduce the gap
-    n = len(arr)
+    n = len(unsortedArray)
     gap = n // 2
 
     # Do a gapped insertion sort for this gap size.
@@ -28,20 +28,20 @@ def shellSort(arr):
 
             # add a[i] to the elements that have been gap sorted
             # save a[i] in temp and make a hole at position i
-            temp = arr[i]
+            temp = unsortedArray[i]
 
             # shift earlier gap-sorted elements up until the correct
             # location for a[i] is found
             j = i
-            while j >= gap and arr[j - gap] > temp:
-                arr[j] = arr[j - gap]
+            while j >= gap and unsortedArray[j - gap] > temp:
+                unsortedArray[j] = unsortedArray[j - gap]
                 j -= gap
 
             # put temp (the original a[i]) in its correct location
-            arr[j] = temp
+                unsortedArray[j] = temp
         gap //= 2
 
-    printSortedArray(arr)
+    printSortedArray(unsortedArray)
 
 
 # Function to print Sorted Array
