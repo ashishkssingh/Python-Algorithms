@@ -12,7 +12,7 @@
 # **********************************************************************;
 
 # Function that implements Bubble sort
-def bubbleSort(unsortedArray, sortingType):
+def bubbleSort(unsortedArray, sortingType, sortingTypeArray):
 
     # get length of the array
     arrayLength = len(unsortedArray)
@@ -23,7 +23,7 @@ def bubbleSort(unsortedArray, sortingType):
         # inner loop to compare with every other elements
         for j in range(arrayLength - i - 1):
 
-            if sortingType == "Ascending" or sortingType == "ascending" or sortingType == "asc" or sortingType == "Asc":
+            if (sortingType in sortingTypeArray):
                 # If the next values is less than previous, interchange them
                 if unsortedArray[j] > unsortedArray[j + 1]:
                     unsortedArray[j], unsortedArray[j + 1] = unsortedArray[j + 1], unsortedArray[j]
@@ -52,8 +52,10 @@ if __name__ == "__main__":
     # Test values for sorting
     unsortedArray = [64, 34, 25, 12, 22, 11, 90]
 
+    sortingTypeArray = ["Ascending", "ascending", "asc", "Asc"]
+
     # Type of sorting to be performed Ascending or Descending
-    sortingType = "asc"
+    sortingType = "desc"
 
     # Calling bubble sort function
-    bubbleSort(unsortedArray, sortingType)
+    bubbleSort(unsortedArray, sortingType, sortingTypeArray)
