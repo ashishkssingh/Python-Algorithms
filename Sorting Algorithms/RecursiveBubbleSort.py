@@ -5,59 +5,72 @@
 #
 # Author            : Ashish Singh
 #
-# Date created      : 20190109
+# Date created      : 20190110
 #
 # Purpose           : Implementing bubble sort algorithm in python
 #
 # **********************************************************************;
 
-# Function that implements Bubble sort
-def RecursiveBubbleSort(unsortedArray, n, sortingType):
-    #  Base case
-    if n == 1:
-        # Call printArray function to print the sorted array
-        printArray(unsortedArray)
-        return 0
+class RecursiveBubbleSort:
+    unsortedArray = []
+    arraySize = 0
+    sortingTypeArray = []
 
-    # Loop through all elements of the array
-    for i in range(n - 1):
+    # Function to initialize global values
+    def __init__(self):
 
-        if sortingType == "Ascending" or sortingType == "ascending" or sortingType == "asc" or sortingType == "Asc":
+        # Array to be sorted using bubble sort
+        self.unsortedArray = [54, 89, 43, 36, 34, 100, 56, 39, 56, 31]
 
-            # If the next values is less than previous, interchange them
-            if unsortedArray[i] > unsortedArray[i + 1]:
-                unsortedArray[i], unsortedArray[i + 1] = unsortedArray[i + 1], unsortedArray[i]
+        # Size of array
+        self.arraySize = len(self.unsortedArray)
 
-        else:
+        # Sorting type to be implemented
+        self.sortingTypeArray = ["Ascending", "ascending", "asc", "Asc"]
 
-            # If the next values is greater than previous, interchange them
-            if unsortedArray[i] < unsortedArray[i + 1]:
-                unsortedArray[i], unsortedArray[i + 1] = unsortedArray[i + 1], unsortedArray[i]
+    # Function to print sorted array
+    def printArray(self, sortedArray):
+        string = "Sorted array is : "
 
-    RecursiveBubbleSort(unsortedArray, n - 1, sortingType)
+        for i in range(len(sortedArray)):
+            string += str(sortedArray[i]) + " "
+
+        # Print Sorted array to the console
+        print(string)
+
+    # Function that implements recursive bubble sort
+    def recursiveBubbleSort(self, sortingType, arraySize):
+
+        # Initialize the array to a local variable
+        unsortedArray = self.unsortedArray
+
+        # Base case to terminate the recursion
+        if arraySize == 1:
+            self.printArray(self.unsortedArray)
+            return 0
+
+        # Loop through all elements in the array
+        for i in range(arraySize - 1):
+
+            if sortingType in self.sortingTypeArray:
+                # If the next values is less than previous, interchange them
+                if unsortedArray[i] > unsortedArray[i + 1]:
+                    unsortedArray[i], unsortedArray[i + 1] = unsortedArray[i + 1], unsortedArray[i]
+
+            else:
+                # If the next values is greater than previous, interchange them
+                if unsortedArray[i] < unsortedArray[i + 1]:
+                    unsortedArray[i], unsortedArray[i + 1] = unsortedArray[i + 1], unsortedArray[i]
+
+        self.recursiveBubbleSort(sortingType, arraySize - 1)
 
 
-# Function to print Sorted Array
-def printArray(sortedArray):
-    string = "Sorted array is : "
-
-    for i in range(len(sortedArray)):
-        string += str(sortedArray[i]) + " "
-
-    # Print Sorted array to the console
-    print(string)
-
-
-# Main function that executes when script runs on the console.
 if __name__ == "__main__":
-    # Test values for sorting
-    unsortedArray = [64, 34, 25, 12, 22, 11, 90]
-
-    # Type of sorting to be performed Ascending or Descending
+    # Initialize the sorting type
     sortingType = "desc"
 
-    # get length of the array
-    arrayLength = len(unsortedArray)
+    # Create the object for the sorting function
+    recursive_bubble = RecursiveBubbleSort()
 
-    # Calling bubble sort function
-    RecursiveBubbleSort(unsortedArray, arrayLength, sortingType)
+    # Call the sorting functino from the object
+    recursive_bubble.recursiveBubbleSort(sortingType, recursive_bubble.arraySize)
