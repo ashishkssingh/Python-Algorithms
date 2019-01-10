@@ -29,7 +29,7 @@ def selectionSort(unsortedArray, sortingType):
             if (unsortedArray[smallestValueIndex] > unsortedArray[j]):
                 smallestValueIndex = j
 
-        if sortingType == "Ascending":
+        if sortingType == "Ascending" or sortingType == "ascending" or sortingType == "asc" or sortingType == "Asc":
             unsortedArray[i], unsortedArray[smallestValueIndex] = unsortedArray[smallestValueIndex], unsortedArray[i]
         else:
             unsortedArray[arrayLength-1-i], unsortedArray[smallestValueIndex] = unsortedArray[smallestValueIndex], unsortedArray[arrayLength-1-i]
