@@ -5,58 +5,81 @@
 #
 # Author            : Ashish Singh
 #
-# Date created      : 20190109
+# Date created      : 20190110
 #
 # Purpose           : Implementing selection sort algorithm in python
 #
 # **********************************************************************;
 
-# Function that implements Selection sort
-def selectionSort(unsortedArray, sortingType):
-    # get length of the array
-    arrayLength = len(unsortedArray)
+# Class to implement selection sort algorithm
+class SelectionSort:
 
-    # Loop throught all elements of the array
-    for i in range(arrayLength):
+    # Variable initialization
+    unsortedArray = []
+    arraySize = 0
+    sortingTypeArray = []
 
-        # Set the first element of the loop as the smallest element and store its index
-        smallestValueIndex = i
+    # Function to define global variables
+    def __init__(self):
 
-        # inner loop to compare with every other elements, leaving the selected element index
-        for j in range(i + 1, arrayLength):
+        # Array to be sorted
+        self.unsortedArray = [18, 75, 77, 70, 32, 15, 71, 64, 67, 14]
 
-            # If the any other values is less than previous, set new minimum index
-            if (unsortedArray[smallestValueIndex] > unsortedArray[j]):
-                smallestValueIndex = j
+        # Size of the array
+        self.arraySize = len(self.unsortedArray)
 
-        if sortingType == "Ascending" or sortingType == "ascending" or sortingType == "asc" or sortingType == "Asc":
-            unsortedArray[i], unsortedArray[smallestValueIndex] = unsortedArray[smallestValueIndex], unsortedArray[i]
-        else:
-            unsortedArray[arrayLength-1-i], unsortedArray[smallestValueIndex] = unsortedArray[smallestValueIndex], unsortedArray[arrayLength-1-i]
+        # Array of sorting type
+        self.sortingTypeArray = ["asc", "Asc", "Ascending", "ascending"]
 
-    # Call printArray function to print the sorted array
-    printSortedArray(unsortedArray)
+    # Function to print the sorted array
+    def printArray(self,sortedArray):
+        string = ""
 
+        for i in range(len(sortedArray)):
+            string += str(sortedArray[i]) + " "
 
-# Function to print Sorted Array
-def printSortedArray(sortedArray):
-    string = ""
+        # Print Sorted array to the console
+        print(string)
 
-    for i in range(len(sortedArray)):
-        string += str(sortedArray[i]) + " "
+    # Function to implement selection sort algorithm
+    def selectionSort(self, sortingType, arraySize):
 
-    # Print Sorted array to the console
-    print(string)
+        # Make a local variable of the unsorted array
+        unsortedArray = self.unsortedArray
 
+        # Loop through all the elements in the array
+        for i in range(arraySize):
 
-# Main function that executes when script runs on the console
+            # Set the first element of the loop as the smallest element and store its index
+            firstIndex = i
+
+            # inner loop to compare with every other elements, leaving the selected element index
+            for j in range(i + 1, arraySize):
+
+                if sortingType in self.sortingTypeArray:
+
+                    # If the any other values is less than previous, set new minimum index
+                    if (unsortedArray[firstIndex] > unsortedArray[j]):
+                        firstIndex = j
+                else:
+
+                    # If the any other values is greater than previous, set new maximum index
+                    if (unsortedArray[firstIndex] < unsortedArray[j]):
+                        firstIndex = j
+
+            # Swap the maximum or the minimum element found with the index selected
+            unsortedArray[i], unsortedArray[firstIndex] = unsortedArray[firstIndex], unsortedArray[i]
+
+        # Call printArray function to print the sorted array
+        self.printArray(unsortedArray)
+
 if __name__ == "__main__":
 
-    # Test values for sorting
-    unsortedArray = [18, 75, 77, 70, 32, 15, 71, 64, 67, 14]
+    # Select sorting type
+    sortingType = "desc"
 
-    # Type of sorting to be performed Ascending or Descending
-    sortingType = "Descending"
+    # Create object of the Selection Sort function
+    selection = SelectionSort()
 
-    # Calling selection sort function
-    selectionSort(unsortedArray, sortingType)
+    # Call the seleciton sort function from the class object
+    selection.selectionSort(sortingType, selection.arraySize)
