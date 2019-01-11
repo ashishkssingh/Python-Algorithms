@@ -5,66 +5,83 @@
 #
 # Author            : Ashish Singh
 #
-# Date created      : 20190110
+# Date created      : 20190111
 #
 # Purpose           : Implementing recursive insertion sort algorithm in python
 #
 # **********************************************************************;
 
-# Function that implements recursive insertion sort
-def RecursiveInsertionSort(unsortedArray, arrayLength, sortingType):
+class RecursiveInsertionSort:
 
-    # Base case to exit out of the recursion loop
-    if arrayLength <= 1:
-        return
+    # Declaring variables
+    unsortedArray = []
+    sortingArrayType = []
+    arraySize = 0
 
-    # Sort first n-1 elements
-    RecursiveInsertionSort(unsortedArray, arrayLength - 1, sortingType)
+    def __init__(self):
 
-    # Insert the last element in the correct position and use it as key   
-    last = unsortedArray[arrayLength - 1]
-    j = arrayLength - 2
+        # Array to be sorted
+        self.unsortedArray = [18, 75, 77, 70, 32, 15, 71, 64, 67, 14]
 
-    if sortingType == "Ascending" or sortingType == "ascending" or sortingType == "Asc" or sortingType == "asc":
-        # Move all the values greater than the key one position ahead.
-        while j >= 0 and unsortedArray[j] > last:
-            unsortedArray[j + 1] = unsortedArray[j]
-            j = j - 1
+        # Size of the array
+        self.arraySize = len(self.unsortedArray)
 
-    else:
-        # Move all the values greater than the key one position ahead.
-        while j >= 0 and unsortedArray[j] < last:
-            unsortedArray[j + 1] = unsortedArray[j]
-            j = j - 1
+        # Array of sorting type
+        self.sortingArrayType = ["Ascending", "ascending", "Asc", "asc"]
 
-    unsortedArray[j + 1] = last
+    def printArray(self, sortedArray):
+        string = "Sorted Array is : "
 
+        for i in range(len(sortedArray)):
+            string += str(sortedArray[i]) + " "
 
-# Function to print Sorted Array
-def printSortedArray(sortedArray):
+        # Print Sorted array to the console
+        print(string)
 
-    string = "Sorted Array is : "
+    def recursiveInsertionSort(self, sortingType, arraySize):
 
-    for i in range(len(sortedArray)):
-        string += str(sortedArray[i]) + " "
+        # Make local copy of global array
+        unsortedArray = self.unsortedArray
 
-    # Print Sorted array to the console
-    print(string)
+        # Base case to exit out of the recursion loop
+        if arraySize <= 1:
+            return 0
+
+        # Sort first n-1 elements
+        self.recursiveInsertionSort(sortingType, arraySize - 1)
+
+        # Insert the last element in the correct position and use it as key
+        last = unsortedArray[arraySize - 1]
+        j = arraySize - 2
+
+        if sortingType in self.sortingArrayType:
+
+            # Move all the values greater than the key one position ahead.
+            while j >= 0 and unsortedArray[j] > last:
+                unsortedArray[j + 1] = unsortedArray[j]
+                j = j - 1
+
+        else:
+
+            # Move all the values greater than the key one position ahead.
+            while j >= 0 and unsortedArray[j] < last:
+                unsortedArray[j + 1] = unsortedArray[j]
+                j = j - 1
+
+        unsortedArray[j + 1] = last
 
 
 # Main function that executes when script runs on the console.
 if __name__ == "__main__":
-    # Test values for sorting
-    unsortedArray = [18, 75, 77, 70, 32, 15, 71, 64, 67, 14]
-
-    # get length of the array
-    arrayLength = len(unsortedArray)
 
     # Select Sorting type
-    sortingType = "Desc"
+    sortingType = "asc"
+
+    # Create Insertion sort object
+    recursive_insert = RecursiveInsertionSort()
 
     # Calling recursive insertion sort function
-    RecursiveInsertionSort(unsortedArray, arrayLength, sortingType)
+    recursive_insert.recursiveInsertionSort(sortingType, recursive_insert.arraySize)
 
     # Call printArray function to print the sorted array
-    printSortedArray(unsortedArray)
+    recursive_insert.printArray(recursive_insert.unsortedArray)
