@@ -19,6 +19,7 @@ class BubbleSort:
         # Test values for sorting
         self.unsortedArray = [54, 89, 43, 36, 34, 100, 56, 39, 56, 31]
 
+        # Sorting type to be implemented
         self.sortingTypeArray = ["Ascending", "ascending", "asc", "Asc"]
 
     # Function that implements Bubble sort
