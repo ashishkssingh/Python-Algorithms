@@ -3,74 +3,104 @@
 #
 # Program name      : MergeSort.py
 #
-# Author            : Ashish
+# Author            : Ashish Singh
 #
-# Date created      : 20181220
+# Date created      : 20190111
 #
 # Purpose           : Implementing merge sort algorithm in python
 #
 # **********************************************************************;
 
-# Function that implements Merge sort
-def mergeSort(unsortedArray):
+class MergeSort:
+    # Declare Global Variables
+    unsortedArray = []
+    sortingTypeArray = []
+    arraySize = 0
 
-    if len(unsortedArray) > 1:
-        # Finding the mid of the array
-        mid = len(unsortedArray) // 2
-        # Dividing the array elements
-        L = unsortedArray[:mid]
+    # Function to initialize the global variables
+    def __init__(self):
 
-        # into 2 halves
-        R = unsortedArray[mid:]
+        self.unsortedArray = [18, 75, 77, 70, 32, 15, 71, 64, 67, 14]
 
-        # Sorting the first half
-        mergeSort(L)
+        self.sortingTypeArray = ["Asc", "asc", "Ascending", "ascending"]
 
-        # Sorting the second half
-        mergeSort(R)
+        self.arraySize = len(self.unsortedArray)
 
-        i = j = k = 0
+    def printArray(self, sortedArray):
+        string = ""
 
-        # Copy data to temp arrays L[] and R[]
-        while i < len(L) and j < len(R):
-            if L[i] < R[j]:
-                unsortedArray[k] = L[i]
+        for i in range(len(sortedArray)):
+            string += str(sortedArray[i]) + " "
+
+        # Print Sorted array to the console
+        print(string)
+
+    # Function that implements Merge sort
+    def mergeSort(self, unsortedArray):
+
+        # Sort only if the size of the array is greater than 1
+        if len(unsortedArray) > 1:
+
+            # Find the center element of the array
+            middle = len(unsortedArray) // 2
+
+            # Find the left subset of the array
+            left = unsortedArray[:middle]
+
+            # Find the right subset of the array
+            right = unsortedArray[middle:]
+
+            # Recursively call merge sort on the left subset
+            self.mergeSort(left)
+
+            # Recursively call merge sort on the right subset
+            self.mergeSort(right)
+
+            i = j = k = 0
+
+            # Copy data to temp arrays L[] and R[]
+            while i < len(left) and j < len(right):
+
+                if sortingType in self.sortingTypeArray:
+                    if left[i] < right[j]:
+                        unsortedArray[k] = left[i]
+                        i = i + 1
+                    else:
+                        unsortedArray[k] = right[j]
+                        j = j + 1
+                    k = k + 1
+                else:
+                    if left[i] > right[j]:
+                        unsortedArray[k] = left[i]
+                        i = i + 1
+                    else:
+                        unsortedArray[k] = right[j]
+                        j = j + 1
+                    k = k + 1
+
+            # Checking if any element was left
+            while i < len(left):
+                unsortedArray[k] = left[i]
                 i = i + 1
-            else:
-                unsortedArray[k] = R[j]
+                k = k + 1
+
+            while j < len(right):
+                unsortedArray[k] = right[j]
                 j = j + 1
-            k = k + 1
-
-        # Checking if any element was left
-        while i < len(L):
-            unsortedArray[k] = L[i]
-            i = i + 1
-            k = k + 1
-
-        while j < len(R):
-            unsortedArray[k] = R[j]
-            j = j + 1
-            k = k + 1
-
-
-# Function to print Sorted Array
-def printSortedArray(sortedArray):
-    string = ""
-
-    for i in range(len(sortedArray)):
-        string += str(sortedArray[i]) + " "
-
-    # Print Sorted array to the console
-    print(string)
+                k = k + 1
 
 
 # Main function that executes when script runs on the console
 if __name__ == "__main__":
-    # Test values for sorting
-    unsortedArray = [12, 11, 13, 5, 6, 7]
 
-    # Calling selection sort function
-    mergeSort(unsortedArray)
+    # Select sorting type
+    sortingType = "Desc"
 
-    # Call printArray function to print the sorted array
-    printSortedArray(unsortedArray)
+    # Create object of class
+    merge = MergeSort()
+
+    # Call merge sort function from class object
+    merge.mergeSort(merge.unsortedArray)
+
+    # Call print function from the class object
+    merge.printArray(merge.unsortedArray)
