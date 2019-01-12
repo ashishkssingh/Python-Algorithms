@@ -3,73 +3,83 @@
 # 
 # Program name      : QuickSort.py
 #
-# Author            : Ashish
+# Author            : Ashish Singh
 #
 # Date created      : 20181217
 #
 # Purpose           : Implementing Quick Sort algorithm in python 3
 #
-#**********************************************************************;
+# **********************************************************************;
 
-# Function to calculate the partitioning element
-def partition(unsortedArray, low, high):
+class QuickSort:
 
-    # start from value lower than the starting index
-    i = low - 1
+    unsortedArray = []
+    sortingArrayType = []
+    arraySize = 0
 
-    # Consider pivoting element to be the last element in the array
-    pivot = unsortedArray[high]
+    def __init__(self):
 
-    # Loop though all the elements of the array
-    for j in range(low, high):
+        self.unsortedArray = [18, 75, 77, 70, 32, 15, 71, 64, 67, 14]
 
-        # Compare each element with the pivot, only if it is less than pivot element move it to [i] position
-        if unsortedArray[j] <= pivot:
-            i = i + 1
-            unsortedArray[i], unsortedArray[j] = unsortedArray[j], unsortedArray[i]
+        self.arraySize = len(self.unsortedArray)
 
-    # when the loop ends place the pivot element in the right position
-    unsortedArray[i+1], unsortedArray[high] = unsortedArray[high], unsortedArray[i+1]
+        self.sortingTypeArray = ["Ascending", "ascending", "Asc", "asc"]
 
-    # return the pivot position
-    return i+1
+    def printArray(self, sortedArray):
 
-# Function that implements quick sort algorithm
-def quicksort(unsortedArray, low, high):
+        string = "Sorted Array is : "
 
-    # Check if array has element or not
-    if low < high:
+        for i in range(len(sortedArray)):
+            string += str(sortedArray[i]) + " "
 
-        # Call partitioning function to get the partition index
-        pi = partition(unsortedArray, low, high)
+        # Print the sorted array
+        print(string)
 
-        # Call quick sort function with lower limit as start index and last index as one index behind pivot
-        quicksort(unsortedArray, low, pi - 1)
+    def partition(self, unsortedArray, low, high, sortingType):
 
-        # Call quick sort function with lower limit as one index above the pivot and last index as the last index
-        quicksort(unsortedArray, pi+1, high)
+        i = low - 1
 
-# Function to print the sorted array
-def printArray(sortedArray, arraySize):
+        pivot = self.unsortedArray[high]
 
-    string = "Sorted Array is : "
+        for j in range(low, high):
 
-    for i in range(arraySize):
-        string += str(sortedArray[i])+" "
-    # Print the sorted array
-    print(string)
+            if sortingType in self.sortingTypeArray:
+
+                if unsortedArray[j] < pivot:
+                    i = i + 1
+                    unsortedArray[i], unsortedArray[j] = unsortedArray[j], unsortedArray[i]
+
+            else:
+
+                if unsortedArray[j] > pivot:
+                    i = i + 1
+                    unsortedArray[i], unsortedArray[j] = unsortedArray[j], unsortedArray[i]
+
+        unsortedArray[i+1], unsortedArray[high] = unsortedArray[high], unsortedArray[i+1]
+
+        return i + 1
+
+    def quickSort(self, unsortedArray, low, high, sortingType):
+
+        if low < high:
+
+            pi = self.partition(unsortedArray, low, high, sortingType)
+
+            self.quickSort(unsortedArray, low, pi - 1, sortingType)
+
+            self.quickSort(unsortedArray, pi + 1, high, sortingType)
+
 
 # Main function that will be called when executed from console.
 if __name__ == "__main__":
 
-    # Array that needs to be sorted
-    unsortedArray = [10, 7, 8, 9, 1, 5]
+    sortingType = "desc"
 
-    # Getting size of the array
-    arraySize = len(unsortedArray)
+    # Creating object of the class
+    quick = QuickSort()
 
-    # Call the quick sort function with required arguments
-    quicksort(unsortedArray, 0, arraySize-1)
+    # Calling sort function from the class object
+    quick.quickSort(quick.unsortedArray, 0, len(quick.unsortedArray)-1, sortingType)
 
     # Call the print function to print sorted array
-    printArray(unsortedArray, arraySize)
+    quick.printArray(quick.unsortedArray)
