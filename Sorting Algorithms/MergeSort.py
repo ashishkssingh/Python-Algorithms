@@ -1,17 +1,18 @@
 # **********************************************************************;
 # Project           : Learning Algorithms
 #
-# Program name      : MergeSort.py
+# Program name      : RecursiveMergeSort.py
 #
 # Author            : Ashish Singh
 #
-# Date created      : 20190111
+# Date created      : 20190112
 #
-# Purpose           : Implementing merge sort algorithm in python
+# Purpose           : Implementing recursive merge sort algorithm in python
 #
 # **********************************************************************;
 
 class MergeSort:
+
     # Declare Global Variables
     unsortedArray = []
     sortingTypeArray = []
@@ -20,12 +21,16 @@ class MergeSort:
     # Function to initialize the global variables
     def __init__(self):
 
+        # Array to be sorted
         self.unsortedArray = [18, 75, 77, 70, 32, 15, 71, 64, 67, 14]
 
+        # Type of sorting to be performed
         self.sortingTypeArray = ["Asc", "asc", "Ascending", "ascending"]
 
+        # Size of the array that needs to be sorted
         self.arraySize = len(self.unsortedArray)
 
+    # Function to print the sorted the array
     def printArray(self, sortedArray):
         string = ""
 
@@ -61,6 +66,7 @@ class MergeSort:
             # Copy data to temp arrays L[] and R[]
             while i < len(left) and j < len(right):
 
+                # If type of sorting is ascending
                 if sortingType in self.sortingTypeArray:
                     if left[i] < right[j]:
                         unsortedArray[k] = left[i]
@@ -69,6 +75,8 @@ class MergeSort:
                         unsortedArray[k] = right[j]
                         j = j + 1
                     k = k + 1
+
+                # If type of sorting is descending
                 else:
                     if left[i] > right[j]:
                         unsortedArray[k] = left[i]
@@ -78,7 +86,7 @@ class MergeSort:
                         j = j + 1
                     k = k + 1
 
-            # Checking if any element was left
+            # Checking if any element was left and insert them into the array
             while i < len(left):
                 unsortedArray[k] = left[i]
                 i = i + 1
