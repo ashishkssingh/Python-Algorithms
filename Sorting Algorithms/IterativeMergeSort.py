@@ -5,7 +5,7 @@
 #
 # Author            : Ashish Singh
 #
-# Date created      : 20190112
+# Date created      : 20190113
 #
 # Purpose           : Implementing iterative merge sort algorithm in python
 #
@@ -59,7 +59,7 @@ class IterativeMergeSort:
 				# if 2 * current_size < len(a)-1
 				# else len(a)-1
 				right = min(2 * current_size + left - 1, len(a) - 1)
-				
+
 				# Merge call for each sub array
 				self.merge(a,left, mid, right)
 				left = left + current_size * 2
