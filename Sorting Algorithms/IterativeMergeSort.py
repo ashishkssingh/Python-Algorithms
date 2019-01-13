@@ -137,7 +137,7 @@ class IterativeMergeSort:
 
 
 if __name__ == "__main__":
-	
+
     # Select sorting type
     sortingType = "desc"
 
