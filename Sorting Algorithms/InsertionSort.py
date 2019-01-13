@@ -5,60 +5,74 @@
 #
 # Author            : Ashish Singh
 #
-# Date created      : 20190110
+# Date created      : 20190113
 #
 # Purpose           : Implementing insertion sort algorithm in python
 #
 # **********************************************************************;
 
-# Function that implements insertion sort
-def insertionSort(unsortedArray, arrayLength, sortingType):
+class InsertionSort:
 
-    for i in range(1, arrayLength):
+    unsortedArray = []
+    sortingTypeArray = []
+    arraySize = 0
 
-        # Select the first element if the loop as key
-        key = unsortedArray[i]
+    def __init__(self):
 
-        j = i - 1
+        self.unsortedArray = [12, 11, 13, 5, 15, 6, 7, 9, 22, 1]
 
-        if sortingType == "Ascending" or sortingType == "Asc" or sortingType == "ascending" or sortingType == "asc":
-            while j >= 0 and key < unsortedArray[j]:
-                unsortedArray[j + 1] = unsortedArray[j]
-                j -= 1
+        self.arraySize = len(self.unsortedArray)
 
-        else:
-            while j >= 0 and key > unsortedArray[j]:
-                unsortedArray[j + 1] = unsortedArray[j]
-                j -= 1
+        self.sortingTypeArray = ["Ascending", "ascending", "Asc", "asc"]
 
-        unsortedArray[j + 1] = key
+    def printArray(self, sortedArray):
+        string = ""
 
-    # Call printArray function to print the sorted array
-    printSortedArray(unsortedArray)
+        for i in range(len(sortedArray)):
+            string += str(sortedArray[i]) + " "
 
+        # Print Sorted array to the console
+        print(string)
 
-# Function to print Sorted Array
-def printSortedArray(sortedArray):
-    string = ""
+    # Function that implements insertion sort
+    def insertionSort(self, sortingType):
 
-    for i in range(len(sortedArray)):
-        string += str(sortedArray[i]) + " "
+        unsortedArray = self.unsortedArray
 
-    # Print Sorted array to the console
-    print(string)
+        arrayLength = self.arraySize
 
+        for i in range(1, arrayLength):
+
+            # Select the first element if the loop as key
+            key = unsortedArray[i]
+
+            j = i - 1
+
+            if sortingType in self.sortingTypeArray:
+
+                # If key value is less then the element at the index then move it.
+                while j >= 0 and key < unsortedArray[j]:
+                    unsortedArray[j + 1] = unsortedArray[j]
+                    j -= 1
+            else:
+                # If key value is greater then the element at the index then move it.
+                while j >= 0 and key > unsortedArray[j]:
+                    unsortedArray[j + 1] = unsortedArray[j]
+                    j -= 1
+
+            unsortedArray[j + 1] = key
+
+        # Call printArray function to print the sorted array
+        self.printArray(unsortedArray)
 
 # Main function that executes when script runs on the console.
 if __name__ == "__main__":
 
-    # Test values for sorting
-    unsortedArray = [18, 75, 77, 70, 32, 15, 71, 64, 67, 14]
-
-    # get length of the array
-    arrayLength = len(unsortedArray)
-
     # Select sorting type
     sortingType = "Desc"
 
+    # Create class object
+    insert = InsertionSort()
+
     # Calling insertion sort function
-    insertionSort(unsortedArray, arrayLength, sortingType)
+    insert.insertionSort(sortingType)
