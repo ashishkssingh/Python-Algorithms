@@ -19,7 +19,7 @@ class IterativeMergeSort:
 
 	def __init__(self):
 
-		self.unsortedArray = [12, 11, 13, 5, 15, 6, 7, 9, 22, 14, 45]
+		self.unsortedArray = [12, 11, 13, 5, 15, 6, 7, 9, 22, 1]
 
 		self.arraySize = len(self.unsortedArray)
 
@@ -52,7 +52,7 @@ class IterativeMergeSort:
 				# mid index = left index of
 				# sub array + current sub
 				# array size - 1
-				mid = left + current_size - 1
+				mid = min(left + current_size - 1,len(a)-1)
 
 				# (False result,True result)
 				# [Condition] Can use current_size
@@ -68,7 +68,7 @@ class IterativeMergeSort:
 			# multiple of 2
 			current_size = 2 * current_size
 
-		print(self.unsortedArray)
+		self.printArray(self.unsortedArray)
 
 	# Merge Function
 	def merge(self,a, l, m, r):
