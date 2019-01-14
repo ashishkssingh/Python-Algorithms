@@ -15,6 +15,7 @@ Learning and practicing algorithms.
 * Quick Sort
 * Heap Sort
 * Shell Sort
+* Counting Sort
 
 ### Searching Algorithms
 
