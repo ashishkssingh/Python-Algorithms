@@ -14,9 +14,9 @@
 # Import libraries that are being used
 import math
 
+
 # Function that implements the search algorithm
 def jumpSearch(searchArray, searchedValue, arraySize):
-
     # Finding block size to be jumped
     block = math.sqrt(arraySize)
 
@@ -39,22 +39,22 @@ def jumpSearch(searchArray, searchedValue, arraySize):
     # If element is found in the given block return the value of the index
     if searchArray[int(leftLimit)] == searchedValue:
         return int(leftLimit)
-    
-    # If the element is still not found return -1 as index     
+
+    # If the element is still not found return -1 as index
     return -1
+
 
 # Function to print index of the element
 def printIndex(index):
-    
     # Check for the value of the index, if -1 the value was not found else print the value of index
     if index == -1:
         print("Value was not found in the array")
     else:
         print("Value was found at index : " + str(index))
 
+
 # Main function that executes when script runs on the console.
 if __name__ == "__main__":
-    
     # Initialize searching array
     searchArray = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
 
