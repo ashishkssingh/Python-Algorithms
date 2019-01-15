@@ -5,7 +5,7 @@
 #
 # Author            : Ashish Singh
 #
-# Date created      : 20181230
+# Date created      : 20190114
 #
 # Purpose           : Implementing Exponential Search algorithm in python
 #
