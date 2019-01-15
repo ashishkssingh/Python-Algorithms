@@ -17,11 +17,13 @@ import math
 
 # Function that implements the search algorithm
 def jumpSearch(searchArray, searchedValue, arraySize):
+
     # Finding block size to be jumped
     block = math.sqrt(arraySize)
 
     # Look for the block in which searched element is present
     leftLimit = 0
+
     while searchArray[int(min(block, arraySize) - 1)] < searchedValue:
         leftLimit = block
         block += math.sqrt(arraySize)
@@ -55,6 +57,7 @@ def printIndex(index):
 
 # Main function that executes when script runs on the console.
 if __name__ == "__main__":
+
     # Initialize searching array
     searchArray = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
 
