@@ -13,10 +13,6 @@
 
 class InsertionSort:
 
-    unsortedArray = []
-    sortingTypeArray = []
-    arraySize = 0
-
     def __init__(self):
 
         self.unsortedArray = [12, 11, 13, 5, 15, 6, 7, 9, 22, 1]
@@ -43,7 +39,7 @@ class InsertionSort:
 
         for i in range(1, arrayLength):
 
-            # Select the first element if the loop as key
+            # Select the first element in the loop as key
             key = unsortedArray[i]
 
             j = i - 1
