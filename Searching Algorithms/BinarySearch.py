@@ -13,10 +13,6 @@
 
 class BinarySearch:
 
-    searchArray = []
-    searchedValue = 0
-    arraySize = 0
-
     def __init__(self):
 
         self.searchArray = [54, 89, 43, 36, 34, 100, 56, 39, 12, 31]
