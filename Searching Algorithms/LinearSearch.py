@@ -12,9 +12,6 @@
 # **********************************************************************;
 
 class LinearSearch:
-    searchArray = []
-    searchedValue = 0
-    arraySize = 0
 
     def __init__(self):
 
