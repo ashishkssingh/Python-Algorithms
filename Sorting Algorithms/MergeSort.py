@@ -13,11 +13,6 @@
 
 class MergeSort:
 
-    # Declare Global Variables
-    unsortedArray = []
-    sortingTypeArray = []
-    arraySize = 0
-
     # Function to initialize the global variables
     def __init__(self):
 
