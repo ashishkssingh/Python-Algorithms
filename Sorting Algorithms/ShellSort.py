@@ -11,54 +11,68 @@
 #
 # **********************************************************************;
 
-# Function to implement shell sort algorithm
-def shellSort(unsortedArray):
+class ShellSort:
 
-    # Start with a big gap, then reduce the gap
-    n = len(unsortedArray)
-    gap = n // 2
+    def __init__(self):
 
-    # Do a gapped insertion sort for this gap size.
-    # The first gap elements a[0..gap-1] are already in gapped
-    # order keep adding one more element until the entire array
-    # is gap sorted
-    while gap > 0:
+        # Test values for sorting
+        self.unsortedArray = [59, 84, 4, 50, 86, 97, 21, 71, 92]
 
-        for i in range(gap, n):
+        # Type of Sorting to be performed
+        self.sortingTypeArray = ["Ascending", "ascending", "Asc", "asc"]
 
-            # add a[i] to the elements that have been gap sorted
-            # save a[i] in temp and make a hole at position i
-            temp = unsortedArray[i]
+    # Function to print Sorted Array
+    def printArray(self, sortedArray):
+        string = ""
 
-            # shift earlier gap-sorted elements up until the correct
-            # location for a[i] is found
-            j = i
-            while j >= gap and unsortedArray[j - gap] > temp:
-                unsortedArray[j] = unsortedArray[j - gap]
-                j -= gap
+        for i in range(len(sortedArray)):
+            string += str(sortedArray[i]) + " "
 
-            # put temp (the original a[i]) in its correct location
-                unsortedArray[j] = temp
-        gap //= 2
+        # Print Sorted array to the console
+        print(string)
 
-    printSortedArray(unsortedArray)
+    # Function to implement shell sort algorithm
+    def shellSort(self, unsortedArray, sortingType):
 
+        # Start with a big gap, then reduce the gap
+        n = len(unsortedArray)
+        gap = n // 2
 
-# Function to print Sorted Array
-def printSortedArray(sortedArray):
-    string = ""
+        # Do a gapped insertion sort for this gap size.
+        # The first gap elements a[0..gap-1] are already in gapped
+        # order keep adding one more element until the entire array
+        # is gap sorted
+        while gap > 0:
 
-    for i in range(len(sortedArray)):
-        string += str(sortedArray[i]) + " "
+            for i in range(gap, n):
 
-    # Print Sorted array to the console
-    print(string)
+                # add a[i] to the elements that have been gap sorted
+                # save a[i] in temp and make a hole at position i
+                temp = unsortedArray[i]
+
+                # shift earlier gap-sorted elements up until the correct
+                # location for a[i] is found
+                j = i
+                while j >= gap and unsortedArray[j - gap] > temp:
+                    unsortedArray[j] = unsortedArray[j - gap]
+                    j -= gap
+
+                    # put temp (the original a[i]) in its correct location
+                    unsortedArray[j] = temp
+            gap //= 2
 
 
 # Main function that executes when script runs on the console.
 if __name__ == "__main__":
-    # Test values for sorting
-    unsortedArray = [59, 84, 4, 50,	86,	97,	21,	71,	92]
+
+    # Select the sorting type
+    sortingType = "desc"
+
+    # Create object of the class
+    shell = ShellSort()
 
     # Calling insertion sort function
-    shellSort(unsortedArray)
+    shell.shellSort(shell.unsortedArray, sortingType)
+
+    # Call the print function to print the sorted Array
+    shell.printArray(shell.unsortedArray)
