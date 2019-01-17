@@ -14,11 +14,6 @@
 # Class to implement selection sort algorithm
 class SelectionSort:
 
-    # Variable initialization
-    unsortedArray = []
-    arraySize = 0
-    sortingTypeArray = []
-
     # Function to define global variables
     def __init__(self):
 
