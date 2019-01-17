@@ -12,9 +12,6 @@
 # **********************************************************************;
 
 class RecursiveBubbleSort:
-    unsortedArray = []
-    arraySize = 0
-    sortingTypeArray = []
 
     # Function to initialize global values
     def __init__(self):
