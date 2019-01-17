@@ -13,11 +13,6 @@
 
 class QuickSort:
 
-    # Declare global variables
-    unsortedArray = []
-    sortingArrayType = []
-    arraySize = 0
-
     # Function to initialize global variables
     def __init__(self):
 
