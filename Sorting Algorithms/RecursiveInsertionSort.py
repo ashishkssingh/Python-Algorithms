@@ -13,11 +13,6 @@
 
 class RecursiveInsertionSort:
 
-    # Declaring variables
-    unsortedArray = []
-    sortingArrayType = []
-    arraySize = 0
-
     def __init__(self):
 
         # Array to be sorted
