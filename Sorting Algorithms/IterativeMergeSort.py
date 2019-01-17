@@ -12,10 +12,6 @@
 # **********************************************************************;
 
 class IterativeMergeSort:
-    # Declare Global Variables
-    unsortedArray = []
-    sortingTypeArray = []
-    arraySize = 0
 
     # Initialize Global Variables
     def __init__(self):
